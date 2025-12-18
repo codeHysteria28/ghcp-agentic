@@ -389,11 +389,6 @@
             .section-title {
                 font-size: 2rem;
             }
-
-            .scroll-to-top {
-                bottom: 1rem;
-                right: 1rem;
-            }
         }
     </style>
 </head>
@@ -401,53 +396,51 @@
     <header>
         <nav>
             <h1>💻 CodeCommunity</h1>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
             <ul>
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#features" class="nav-link">Features</a></li>
-                <li><a href="#community" class="nav-link">Community</a></li>
-                <li><a href="#resources" class="nav-link">Resources</a></li>
-                <li><button class="theme-toggle">🌙 Dark</button></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#community">Community</a></li>
+                <li><a href="#resources">Resources</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero" id="home">
+    <section class="hero">
         <h2>Welcome to the Programming Community</h2>
         <p>Join thousands of developers worldwide. Learn, share, and grow together in a supportive environment where code meets creativity.</p>
-        <a href="#features" class="cta-button nav-link">Join Now</a>
-        <a href="#resources" class="cta-button secondary nav-link">Explore Resources</a>
+        <a href="#" class="cta-button">Join Now</a>
+        <a href="#" class="cta-button secondary">Explore Resources</a>
     </section>
 
     <section class="container" id="features">
-        <h2 class="section-title fade-in">Why Join Our Community?</h2>
+        <h2 class="section-title">Why Join Our Community?</h2>
         <div class="features">
-            <div class="feature-card fade-in">
+            <div class="feature-card">
                 <div class="feature-icon">🚀</div>
                 <h3>Learn & Grow</h3>
                 <p>Access thousands of tutorials, coding challenges, and expert-led workshops to accelerate your programming journey.</p>
             </div>
-            <div class="feature-card fade-in">
+            <div class="feature-card">
                 <div class="feature-icon">🤝</div>
                 <h3>Connect & Collaborate</h3>
                 <p>Network with developers from around the world, find mentors, and collaborate on exciting open-source projects.</p>
             </div>
-            <div class="feature-card fade-in">
+            <div class="feature-card">
                 <div class="feature-icon">💡</div>
                 <h3>Share Knowledge</h3>
                 <p>Contribute to discussions, write technical articles, and help others while strengthening your own understanding.</p>
             </div>
-            <div class="feature-card fade-in">
+            <div class="feature-card">
                 <div class="feature-icon">🏆</div>
                 <h3>Compete & Achieve</h3>
                 <p>Participate in coding competitions, earn badges, and showcase your skills to potential employers.</p>
             </div>
-            <div class="feature-card fade-in">
+            <div class="feature-card">
                 <div class="feature-icon">📚</div>
                 <h3>Rich Resources</h3>
                 <p>Access a curated library of programming resources, documentation, and best practices across all major languages.</p>
             </div>
-            <div class="feature-card fade-in">
+            <div class="feature-card">
                 <div class="feature-icon">🌍</div>
                 <h3>Global Events</h3>
                 <p>Join virtual meetups, hackathons, and conferences to stay updated with the latest tech trends.</p>
@@ -455,44 +448,44 @@
         </div>
     </section>
 
-    <section class="stats" id="resources">
+    <section class="stats">
         <h2 class="section-title">Our Community in Numbers</h2>
         <div class="stats-grid">
             <div class="stat-item">
-                <h3 class="counter" data-target="50000">0</h3>
+                <h3>50K+</h3>
                 <p>Active Members</p>
             </div>
             <div class="stat-item">
-                <h3 class="counter" data-target="1000">0</h3>
+                <h3>1000+</h3>
                 <p>Projects Launched</p>
             </div>
             <div class="stat-item">
-                <h3 class="counter" data-target="10000">0</h3>
+                <h3>10K+</h3>
                 <p>Resources Shared</p>
             </div>
             <div class="stat-item">
-                <h3 class="counter" data-target="100">0</h3>
+                <h3>100+</h3>
                 <p>Countries Represented</p>
             </div>
         </div>
     </section>
 
     <section class="container community-highlights" id="community">
-        <h2 class="section-title fade-in">Community Highlights</h2>
+        <h2 class="section-title">Community Highlights</h2>
         <div class="highlight-grid">
-            <div class="highlight-card fade-in">
+            <div class="highlight-card">
                 <h4>🎓 Weekly Workshops</h4>
                 <p>Join live coding sessions with industry experts covering topics from basics to advanced architecture patterns.</p>
             </div>
-            <div class="highlight-card fade-in">
+            <div class="highlight-card">
                 <h4>💬 Active Forums</h4>
                 <p>Get help with your code, discuss best practices, and engage in meaningful technical conversations.</p>
             </div>
-            <div class="highlight-card fade-in">
+            <div class="highlight-card">
                 <h4>🔧 Open Source Hub</h4>
                 <p>Discover projects seeking contributors and showcase your own work to gain visibility and feedback.</p>
             </div>
-            <div class="highlight-card fade-in">
+            <div class="highlight-card">
                 <h4>📝 Tech Blog</h4>
                 <p>Read and contribute articles on the latest programming trends, tutorials, and career advice.</p>
             </div>
@@ -539,164 +532,8 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Programming Community. All rights reserved. Built with ❤️ by developers, for developers.</p>
+            <p>&copy; 2025 Programming Community. All rights reserved. Built with ❤️ by developers, for developers.</p>
         </div>
     </footer>
-
-    <!-- Scroll to top button -->
-    <button class="scroll-to-top" aria-label="Scroll to top">↑</button>
-
-    <script>
-        // Mobile menu toggle
-        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-        const navMenu = document.querySelector('nav ul');
-        
-        mobileMenuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-
-        // Smooth scroll for navigation links
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                
-                if (targetSection) {
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
-                }
-                
-                // Close mobile menu after click
-                navMenu.classList.remove('active');
-            });
-        });
-
-        // Theme toggle functionality
-        const themeToggle = document.querySelector('.theme-toggle');
-        const body = document.body;
-        
-        // Load saved theme preference
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            body.classList.add('dark-mode');
-            themeToggle.textContent = '☀️ Light';
-        }
-        
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            
-            if (body.classList.contains('dark-mode')) {
-                themeToggle.textContent = '☀️ Light';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                themeToggle.textContent = '🌙 Dark';
-                localStorage.setItem('theme', 'light');
-            }
-        });
-
-        // Constants
-        const SCROLL_THRESHOLD = 300;
-        const COUNTER_DURATION = 2000;
-        const TARGET_FPS = 60;
-        const FRAME_RATE_MS = 1000 / TARGET_FPS;
-        const PARALLAX_SPEED = 0.5;
-
-        // Scroll to top button
-        const scrollToTopBtn = document.querySelector('.scroll-to-top');
-        
-        scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Animated counter for statistics
-        const counters = document.querySelectorAll('.counter');
-        let hasAnimated = false;
-        
-        const animateCounter = (counter) => {
-            const target = parseInt(counter.getAttribute('data-target'));
-            const increment = target / (COUNTER_DURATION / FRAME_RATE_MS);
-            let current = 0;
-            
-            const updateCounter = () => {
-                current += increment;
-                if (current < target) {
-                    if (target >= 1000) {
-                        counter.textContent = Math.floor(current / 1000) + 'K+';
-                    } else {
-                        counter.textContent = Math.floor(current) + '+';
-                    }
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    if (target >= 1000) {
-                        counter.textContent = Math.floor(target / 1000) + 'K+';
-                    } else {
-                        counter.textContent = target + '+';
-                    }
-                }
-            };
-            
-            updateCounter();
-        };
-        
-        // Intersection Observer for fade-in animations and counter
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    
-                    // Animate counters when stats section is visible
-                    if (!hasAnimated && entry.target.classList.contains('stats')) {
-                        hasAnimated = true;
-                        counters.forEach(counter => animateCounter(counter));
-                    }
-                }
-            });
-        }, observerOptions);
-        
-        // Observe all fade-in elements
-        const fadeElements = document.querySelectorAll('.fade-in');
-        fadeElements.forEach(element => observer.observe(element));
-        
-        // Observe stats section for counter animation
-        const statsSection = document.querySelector('.stats');
-        if (statsSection) {
-            observer.observe(statsSection);
-        }
-
-        // Combined scroll handler with requestAnimationFrame for performance
-        const hero = document.querySelector('.hero');
-        let ticking = false;
-
-        const handleScroll = () => {
-            const scrolled = window.pageYOffset;
-            
-            // Update scroll-to-top button visibility
-            if (scrolled > SCROLL_THRESHOLD) {
-                scrollToTopBtn.classList.add('visible');
-            } else {
-                scrollToTopBtn.classList.remove('visible');
-            }
-            
-            // Apply parallax effect to hero section
-            if (hero && scrolled < hero.offsetHeight) {
-                hero.style.transform = `translateY(${scrolled * PARALLAX_SPEED}px)`;
-            }
-            
-            ticking = false;
-        };
-
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                requestAnimationFrame(handleScroll);
-                ticking = true;
-            }
-        });
-    </script>
 </body>
 </html>
