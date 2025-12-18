@@ -254,9 +254,128 @@
             }
         }
 
+        /* Mobile menu styles */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Theme toggle button */
+        .theme-toggle {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Scroll to top button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: transform 0.3s, opacity 0.3s;
+            z-index: 999;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-5px);
+        }
+
+        .scroll-to-top.visible {
+            display: flex;
+        }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .container {
+            background-color: #1a1a1a;
+        }
+
+        body.dark-mode .section-title {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .feature-card {
+            background: #2a2a2a;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .highlight-card {
+            background: #2a2a2a;
+            color: #e0e0e0;
+            border-color: #444;
+        }
+
+        body.dark-mode .community-highlights {
+            background: #1a1a1a;
+        }
+
+        /* Fade in animation on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         @media (max-width: 768px) {
             nav ul {
-                gap: 1rem;
+                position: fixed;
+                top: 60px;
+                left: -100%;
+                width: 100%;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                flex-direction: column;
+                gap: 0;
+                padding: 2rem;
+                transition: left 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+            nav ul li {
+                padding: 1rem 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .mobile-menu-toggle {
+                display: block;
             }
 
             .hero h2 {
@@ -270,6 +389,11 @@
             .section-title {
                 font-size: 2rem;
             }
+
+            .scroll-to-top {
+                bottom: 1rem;
+                right: 1rem;
+            }
         }
     </style>
 </head>
@@ -277,51 +401,53 @@
     <header>
         <nav>
             <h1>💻 CodeCommunity</h1>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#community">Community</a></li>
-                <li><a href="#resources">Resources</a></li>
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#community" class="nav-link">Community</a></li>
+                <li><a href="#resources" class="nav-link">Resources</a></li>
+                <li><button class="theme-toggle">🌙 Dark</button></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero">
+    <section class="hero" id="home">
         <h2>Welcome to the Programming Community</h2>
         <p>Join thousands of developers worldwide. Learn, share, and grow together in a supportive environment where code meets creativity.</p>
-        <a href="#" class="cta-button">Join Now</a>
-        <a href="#" class="cta-button secondary">Explore Resources</a>
+        <a href="#features" class="cta-button nav-link">Join Now</a>
+        <a href="#resources" class="cta-button secondary nav-link">Explore Resources</a>
     </section>
 
     <section class="container" id="features">
-        <h2 class="section-title">Why Join Our Community?</h2>
+        <h2 class="section-title fade-in">Why Join Our Community?</h2>
         <div class="features">
-            <div class="feature-card">
+            <div class="feature-card fade-in">
                 <div class="feature-icon">🚀</div>
                 <h3>Learn & Grow</h3>
                 <p>Access thousands of tutorials, coding challenges, and expert-led workshops to accelerate your programming journey.</p>
             </div>
-            <div class="feature-card">
+            <div class="feature-card fade-in">
                 <div class="feature-icon">🤝</div>
                 <h3>Connect & Collaborate</h3>
                 <p>Network with developers from around the world, find mentors, and collaborate on exciting open-source projects.</p>
             </div>
-            <div class="feature-card">
+            <div class="feature-card fade-in">
                 <div class="feature-icon">💡</div>
                 <h3>Share Knowledge</h3>
                 <p>Contribute to discussions, write technical articles, and help others while strengthening your own understanding.</p>
             </div>
-            <div class="feature-card">
+            <div class="feature-card fade-in">
                 <div class="feature-icon">🏆</div>
                 <h3>Compete & Achieve</h3>
                 <p>Participate in coding competitions, earn badges, and showcase your skills to potential employers.</p>
             </div>
-            <div class="feature-card">
+            <div class="feature-card fade-in">
                 <div class="feature-icon">📚</div>
                 <h3>Rich Resources</h3>
                 <p>Access a curated library of programming resources, documentation, and best practices across all major languages.</p>
             </div>
-            <div class="feature-card">
+            <div class="feature-card fade-in">
                 <div class="feature-icon">🌍</div>
                 <h3>Global Events</h3>
                 <p>Join virtual meetups, hackathons, and conferences to stay updated with the latest tech trends.</p>
@@ -329,44 +455,44 @@
         </div>
     </section>
 
-    <section class="stats">
+    <section class="stats" id="resources">
         <h2 class="section-title">Our Community in Numbers</h2>
         <div class="stats-grid">
             <div class="stat-item">
-                <h3>50K+</h3>
+                <h3 class="counter" data-target="50000">0</h3>
                 <p>Active Members</p>
             </div>
             <div class="stat-item">
-                <h3>1000+</h3>
+                <h3 class="counter" data-target="1000">0</h3>
                 <p>Projects Launched</p>
             </div>
             <div class="stat-item">
-                <h3>10K+</h3>
+                <h3 class="counter" data-target="10000">0</h3>
                 <p>Resources Shared</p>
             </div>
             <div class="stat-item">
-                <h3>100+</h3>
+                <h3 class="counter" data-target="100">0</h3>
                 <p>Countries Represented</p>
             </div>
         </div>
     </section>
 
     <section class="container community-highlights" id="community">
-        <h2 class="section-title">Community Highlights</h2>
+        <h2 class="section-title fade-in">Community Highlights</h2>
         <div class="highlight-grid">
-            <div class="highlight-card">
+            <div class="highlight-card fade-in">
                 <h4>🎓 Weekly Workshops</h4>
                 <p>Join live coding sessions with industry experts covering topics from basics to advanced architecture patterns.</p>
             </div>
-            <div class="highlight-card">
+            <div class="highlight-card fade-in">
                 <h4>💬 Active Forums</h4>
                 <p>Get help with your code, discuss best practices, and engage in meaningful technical conversations.</p>
             </div>
-            <div class="highlight-card">
+            <div class="highlight-card fade-in">
                 <h4>🔧 Open Source Hub</h4>
                 <p>Discover projects seeking contributors and showcase your own work to gain visibility and feedback.</p>
             </div>
-            <div class="highlight-card">
+            <div class="highlight-card fade-in">
                 <h4>📝 Tech Blog</h4>
                 <p>Read and contribute articles on the latest programming trends, tutorials, and career advice.</p>
             </div>
@@ -416,5 +542,143 @@
             <p>&copy; 2024 Programming Community. All rights reserved. Built with ❤️ by developers, for developers.</p>
         </div>
     </footer>
+
+    <!-- Scroll to top button -->
+    <button class="scroll-to-top" aria-label="Scroll to top">↑</button>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('nav ul');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth scroll for navigation links
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+                
+                // Close mobile menu after click
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Theme toggle functionality
+        const themeToggle = document.querySelector('.theme-toggle');
+        const body = document.body;
+        
+        // Load saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            body.classList.add('dark-mode');
+            themeToggle.textContent = '☀️ Light';
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                themeToggle.textContent = '☀️ Light';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeToggle.textContent = '🌙 Dark';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Scroll to top button
+        const scrollToTopBtn = document.querySelector('.scroll-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Animated counter for statistics
+        const counters = document.querySelectorAll('.counter');
+        let hasAnimated = false;
+        
+        const animateCounter = (counter) => {
+            const target = parseInt(counter.getAttribute('data-target'));
+            const duration = 2000; // 2 seconds
+            const increment = target / (duration / 16); // 60fps
+            let current = 0;
+            
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    if (target >= 1000) {
+                        counter.textContent = Math.floor(current / 1000) + 'K+';
+                    } else {
+                        counter.textContent = Math.floor(current) + '+';
+                    }
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    if (target >= 1000) {
+                        counter.textContent = Math.floor(target / 1000) + 'K+';
+                    } else {
+                        counter.textContent = target + '+';
+                    }
+                }
+            };
+            
+            updateCounter();
+        };
+        
+        // Intersection Observer for fade-in animations and counter
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Animate counters when stats section is visible
+                    if (!hasAnimated && entry.target.classList.contains('stats')) {
+                        hasAnimated = true;
+                        counters.forEach(counter => animateCounter(counter));
+                    }
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all fade-in elements
+        const fadeElements = document.querySelectorAll('.fade-in');
+        fadeElements.forEach(element => observer.observe(element));
+        
+        // Observe stats section for counter animation
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+
+        // Add subtle parallax effect to hero section
+        window.addEventListener('scroll', () => {
+            const hero = document.querySelector('.hero');
+            const scrolled = window.pageYOffset;
+            if (hero && scrolled < hero.offsetHeight) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
 </body>
 </html>
