@@ -595,16 +595,15 @@
             }
         });
 
+        // Constants
+        const SCROLL_THRESHOLD = 300;
+        const COUNTER_DURATION = 2000;
+        const TARGET_FPS = 60;
+        const FRAME_RATE_MS = 1000 / TARGET_FPS;
+        const PARALLAX_SPEED = 0.5;
+
         // Scroll to top button
         const scrollToTopBtn = document.querySelector('.scroll-to-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollToTopBtn.classList.add('visible');
-            } else {
-                scrollToTopBtn.classList.remove('visible');
-            }
-        });
         
         scrollToTopBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -616,8 +615,7 @@
         
         const animateCounter = (counter) => {
             const target = parseInt(counter.getAttribute('data-target'));
-            const duration = 2000; // 2 seconds
-            const increment = target / (duration / 16); // 60fps
+            const increment = target / (COUNTER_DURATION / FRAME_RATE_MS);
             let current = 0;
             
             const updateCounter = () => {
@@ -671,12 +669,32 @@
             observer.observe(statsSection);
         }
 
-        // Add subtle parallax effect to hero section
-        window.addEventListener('scroll', () => {
-            const hero = document.querySelector('.hero');
+        // Combined scroll handler with requestAnimationFrame for performance
+        const hero = document.querySelector('.hero');
+        let ticking = false;
+
+        const handleScroll = () => {
             const scrolled = window.pageYOffset;
+            
+            // Update scroll-to-top button visibility
+            if (scrolled > SCROLL_THRESHOLD) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+            
+            // Apply parallax effect to hero section
             if (hero && scrolled < hero.offsetHeight) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                hero.style.transform = `translateY(${scrolled * PARALLAX_SPEED}px)`;
+            }
+            
+            ticking = false;
+        };
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(handleScroll);
+                ticking = true;
             }
         });
     </script>
